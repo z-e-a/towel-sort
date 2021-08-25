@@ -3,7 +3,10 @@
 
 module.exports = 
 function towelSort (matrix) {
-  return matrix.reduce((acc, curr) => acc.concat(curr), []);
+  // if (!matrix) return [];
+  return matrix ? matrix.reduce((acc, curr, ind) => {
+    return ind % 2 == 0 ? acc.concat(curr) : acc.concat(curr.reverse());
+  }, []) : [];
 }
 
 // matrix = [
@@ -13,4 +16,4 @@ function towelSort (matrix) {
 //  ]
  
 // console.log(towelSort(matrix));
-// should retrun [1, 2, 3, 6, 5, 4, 7, 8, 9 ]
+// // should retrun [1, 2, 3, 6, 5, 4, 7, 8, 9 ]
